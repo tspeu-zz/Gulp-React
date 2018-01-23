@@ -44,3 +44,12 @@ gul.task('open', ['conn'], function(){
     }))
 });
 
+
+//copiar html a dist
+gulp.task('html', function(){
+    gulp.src(config.paths.html)
+    .pipe(gulp.dest(config.paths.dist))
+    .pipe(conn.reload());
+});
+
+
