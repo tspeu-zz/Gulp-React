@@ -52,4 +52,6 @@ gulp.task('html', function(){
     .pipe(conn.reload());
 });
 
+//defaul task
+gulp.task('deafult', ['html', 'open']);
 
