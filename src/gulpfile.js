@@ -36,4 +36,11 @@ gulp.task('conn', function(){
     });
 })
 
-//
+//open the url en el servidor
+gul.task('open', ['conn'], function(){
+    gulp.src('dist/index.html')
+    .pipe(open({
+        uri: config.baseUrl + ':' + config.port + '/'
+    }))
+});
+
