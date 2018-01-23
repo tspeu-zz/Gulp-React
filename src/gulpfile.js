@@ -22,7 +22,18 @@ var config = {
         css:    [
             './node_modules/bootstrap/dist/css/bootstrap.min.css'
         ],
-        dist :  './dist'
-       
+        dist :  './dist'      
     }
 }
+
+//launch a local server for dev
+gulp.task('conn', function(){
+    conn.server({
+        root :  ['dist'],
+        port:   config.port,
+        base:   config.baseUrl,
+        livereload: true    
+    });
+})
+
+//
