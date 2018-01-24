@@ -63,7 +63,13 @@ gulp.task('js',function(){
         .pipe(conn.reload());
 });
 
+//watch the files and reload
+gulp.task('watch', function(){
+    gulp.watch(config.paths.html, ['html']);
+    gulp.watch(config.paths.js);
+});
+
 
 //defaul task
-gulp.task('deafult', ['html', 'open']);
+gulp.task('deafult', ['html','js', 'open', 'watch']);
 
