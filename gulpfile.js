@@ -58,7 +58,7 @@ gulp.task('js',function(){
         .transform(reactify)
         .bundle()
         .on('error', console.error.bind(console))
-        .pipe(source('bundle'))
+        .pipe(source('bundle.js'))
         .pipe(gulp.dest(config.paths.dist + '/js'))
         .pipe(conn.reload());
 });
