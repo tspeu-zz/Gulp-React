@@ -37,7 +37,7 @@ gulp.task('conn', function(){
 })
 
 //open the url en el servidor
-gul.task('open', ['conn'], function(){
+gulp.task('open', ['conn'], function(){
     gulp.src('dist/index.html')
     .pipe(open({
         uri: config.baseUrl + ':' + config.port + '/'
@@ -63,6 +63,13 @@ gulp.task('js',function(){
         .pipe(conn.reload());
 });
 
+//manage css
+gulp.task('css', function(){
+    gulp.src(config.paths.css)
+        .pipe(concat('bundle.css'))
+        .pipe(gulp.dest(config.paths.dist + '/css'));
+});
+
 //watch the files and reload
 gulp.task('watch', function(){
     gulp.watch(config.paths.html, ['html']);
@@ -71,5 +78,5 @@ gulp.task('watch', function(){
 
 
 //defaul task
-gulp.task('deafult', ['html','js', 'open', 'watch']);
+gulp.task('default', ['html','js', 'css', 'open', 'watch']);
 
