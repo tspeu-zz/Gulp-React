@@ -52,6 +52,18 @@ gulp.task('html', function(){
     .pipe(conn.reload());
 });
 
+//transform jsx to js
+gulp.task('js',function(){
+    browserify(config.paths.indexJs)
+        .transform(reactify)
+        .bundle()
+        .on('error', console.error.bind(console))
+        .pipe(source('bundle'))
+        .pipe(gulp.dest(config.paths.dist + '/js'))
+        .pipe(conn.reload());
+});
+
+
 //defaul task
 gulp.task('deafult', ['html', 'open']);
 
