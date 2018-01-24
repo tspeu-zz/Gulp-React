@@ -70,6 +70,13 @@ gulp.task('css', function(){
         .pipe(gulp.dest(config.paths.dist + '/css'));
 });
 
+//lint task
+gulp.task('lint', function(){
+    return gulp.src(config.paths.js)
+        .pipe(lint({config: 'eslintrc.json'}))
+        .pipe(lint.format());
+});
+
 //watch the files and reload
 gulp.task('watch', function(){
     gulp.watch(config.paths.html, ['html']);
@@ -78,5 +85,5 @@ gulp.task('watch', function(){
 
 
 //defaul task
-gulp.task('default', ['html','js', 'css', 'open', 'watch']);
+gulp.task('default', ['html','js', 'css', 'lint', 'open', 'watch']);
 
