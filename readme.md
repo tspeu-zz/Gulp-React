@@ -9,3 +9,4 @@ npm i flux --save
  npm ls flux
  npm la flux--mas detalles
  npm la(ALL) --depth=1 | grep flux
+ 
