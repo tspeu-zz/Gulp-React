@@ -15,4 +15,36 @@ npm i flux --save
    (ALL) 
  npm la flux--mas detalles
  npm la --depth=1 | grep flux
+
+ *-*-*-
+jsx 
+js as XML
+ jsx transpila en funciones plain de js
+ no se puede usar ciertas claves como "for" y "class"
+ se usa "htmlFor" y "className"
+
+ jsx compila a js 
+ es una abstraccion de js->
+
+ jsx beneficios
+ ejemplo-->
+ var Greeting = React.createClass(
+   render: function(){
+     return (<div><h1>Hello Mundo</h1></div>);
+   }
+ );
+
+se hace asi--><h1 color="blue">Heading</h1>
+asi en react->
+React.createElement("h1",{color : "blue"}, "heading")
+
+virtual DOM->
+un documento de estructura l´gica de los elementos de la web page
+representada por nodos y pueden se accesibles desde js
+ no está optimizado para uso de interfaces dinámicas
+
+
+
+
+
  
