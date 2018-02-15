@@ -1,3 +1,4 @@
+//no se usa use stric proque da problemas con jquewry
 $ = jQuery = require("jquery");
 
 // var App = console.log("Browserify is working");
@@ -7,8 +8,10 @@ var ReactDOM = require("react-dom");
 var CreateReactClass = require('create-react-class');
 
 //also ref to the component page
-var Home = require('./components/home/homepage.jsx');
+var Header = require("./components/common/header.jsx");
+var Home = require("./components/home/homepage.jsx");
 var About = require("./components/about/about-page.jsx");
+
 
 // module.exports = App;
 //reder de components in the app elememt
@@ -24,6 +27,7 @@ var App = CreateReactClass({
         }
         return (
             <div>
+                <Header />
                 <Child />
             </div>
         )

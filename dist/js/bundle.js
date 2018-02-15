@@ -29412,6 +29412,32 @@ var About = CreateReactClass({
 
 module.exports = About;
 },{"create-react-class":2,"react":30,"react-dom":26}],33:[function(require,module,exports){
+"use strict"
+
+var React = require("react");
+var ReactDOM = require("react-dom");
+var CreateReactClass = require('create-react-class');
+
+var Header =CreateReactClass({
+    render: function(){
+        return (
+            React.createElement("nav", {className: "navbar navbar-default"}, 
+                React.createElement("div", {className: "container-fluid"}, 
+                    React.createElement("a", {href: "/", className: "navbar-brand"}, 
+                        React.createElement("img", {alt: "CURSOREACT", src: "./images/react.png"})
+                    ), 
+                    React.createElement("ul", {className: "nav nav-tabs"}, 
+                        React.createElement("li", null, React.createElement("a", {href: "#"}, "Home")), 
+                        React.createElement("li", null, React.createElement("a", {href: "/#about"}, "About"))
+                    )
+                )
+            )
+        );
+    }
+});
+
+module.exports = Header;
+},{"create-react-class":2,"react":30,"react-dom":26}],34:[function(require,module,exports){
 'use strict'
 
 // import libs
@@ -29436,7 +29462,8 @@ var Home = CreateReactClass({
 
 module.exports = Home;
 
-},{"create-react-class":2,"react":30,"react-dom":26}],34:[function(require,module,exports){
+},{"create-react-class":2,"react":30,"react-dom":26}],35:[function(require,module,exports){
+//no se usa use stric proque da problemas con jquewry
 $ = jQuery = require("jquery");
 
 // var App = console.log("Browserify is working");
@@ -29446,8 +29473,10 @@ var ReactDOM = require("react-dom");
 var CreateReactClass = require('create-react-class');
 
 //also ref to the component page
-var Home = require('./components/home/homepage.jsx');
+var Header = require("./components/common/header.jsx");
+var Home = require("./components/home/homepage.jsx");
 var About = require("./components/about/about-page.jsx");
+
 
 // module.exports = App;
 //reder de components in the app elememt
@@ -29463,6 +29492,7 @@ var App = CreateReactClass({
         }
         return (
             React.createElement("div", null, 
+                React.createElement(Header, null), 
                 React.createElement(Child, null)
             )
         )
@@ -29478,4 +29508,4 @@ function _routeMe(){
 window.addEventListener('hashchange', _routeMe);
 _routeMe();
 
-},{"./components/about/about-page.jsx":32,"./components/home/homepage.jsx":33,"create-react-class":2,"jquery":20,"react":30,"react-dom":26}]},{},[34]);
+},{"./components/about/about-page.jsx":32,"./components/common/header.jsx":33,"./components/home/homepage.jsx":34,"create-react-class":2,"jquery":20,"react":30,"react-dom":26}]},{},[35]);

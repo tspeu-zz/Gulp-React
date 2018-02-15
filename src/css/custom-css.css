@@ -1,0 +1,28 @@
+.navbar-brand{
+    padding: 10px;
+}
+
+.nav-tabs{
+    padding-top: 7px;
+    padding-bottom: 0;
+    height: 55px;
+    line-height: 55px;
+}
+
+@media(min-width: 200px){
+    .jumbotron {
+        padding-left: 20px;
+    }
+}
+
+p{
+    padding-left: 20px;
+}
+
+h1{
+    padding-left: 20px;
+}
+
+h2{
+    padding-left: 20px;
+}

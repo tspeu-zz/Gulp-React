@@ -17,10 +17,12 @@ var config = {
     baseUrl : 'http://localhost',
     paths: {
         html :  './src/*.html',
+        images: './src/images/*.png',
         js:     './src/**/*.js',
         indexJs:'./src/js/index.js',
         css:    [
-            './node_modules/bootstrap/dist/css/bootstrap.min.css'
+            './node_modules/bootstrap/dist/css/bootstrap.min.css',
+            './src/css/*.css'
         ],
         dist :  './dist'      
     }
@@ -51,6 +53,20 @@ gulp.task('html', function(){
     .pipe(gulp.dest(config.paths.dist))
     .pipe(conn.reload());
 });
+
+
+//copiar imagenes a dist
+gulp.task('images', function(){
+    gulp.src(config.paths.images)
+    .pipe(gulp.dest(config.paths.dist + '/images/'))
+    .pipe( conn.reload() );
+// 
+
+    gulp.src('./src/favicon.ico')
+        .pipe(gulp.dest(config.paths.dist));
+
+});
+
 
 //transform jsx to js
 gulp.task('js',function(){
