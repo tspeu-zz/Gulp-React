@@ -44,7 +44,10 @@ representada por nodos y pueden se accesibles desde js
  no está optimizado para uso de interfaces dinámicas
 
 
-
+--para arreglar el error createClass
+añadir "create-react-class": "^15.6.3
+npm i create-react-class
+y var CreateReactClass()<---
 
 
  

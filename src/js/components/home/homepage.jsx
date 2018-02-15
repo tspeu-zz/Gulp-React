@@ -2,6 +2,8 @@
 
 // import libs
 var React = require('react');
+
+//ojo hay que imnpoirtar para crear la clase
 var ReactDOM = require('react-dom');
 var CreateReactClass = require('create-react-class');
 

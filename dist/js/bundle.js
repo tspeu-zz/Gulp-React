@@ -29387,10 +29387,37 @@ if (process.env.NODE_ENV === 'production') {
 },{"./cjs/react.development.js":28,"./cjs/react.production.min.js":29,"_process":21}],31:[function(require,module,exports){
 arguments[4][3][0].apply(exports,arguments)
 },{"dup":3}],32:[function(require,module,exports){
+'use strict';
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+var CreateReactClass = require('create-react-class');
+
+var About = CreateReactClass({
+    render: function(){
+        return(
+        React.createElement("div", {className: "card"}, 
+            React.createElement("h1", null, "About Page"), 
+            React.createElement("p", null, "Simple app para info de la app"), 
+                React.createElement("ul", {className: "list-group list-group-flush"}, 
+                    React.createElement("li", {className: "list-group-item"}, "React DOM"), 
+                    React.createElement("li", {className: "list-group-item"}, "React Router"), 
+                    React.createElement("li", {className: "list-group-item"}, "FLUX"), 
+                    React.createElement("li", {className: "list-group-item"}, "GULP")
+                )
+        )
+        )
+    }
+});
+
+module.exports = About;
+},{"create-react-class":2,"react":30,"react-dom":26}],33:[function(require,module,exports){
 'use strict'
 
 // import libs
 var React = require('react');
+
+//ojo hay que imnpoirtar para crear la clase
 var ReactDOM = require('react-dom');
 var CreateReactClass = require('create-react-class');
 
@@ -29409,19 +29436,46 @@ var Home = CreateReactClass({
 
 module.exports = Home;
 
-},{"create-react-class":2,"react":30,"react-dom":26}],33:[function(require,module,exports){
+},{"create-react-class":2,"react":30,"react-dom":26}],34:[function(require,module,exports){
 $ = jQuery = require("jquery");
 
 // var App = console.log("Browserify is working");
 // import libs 
 var React = require("react");
 var ReactDOM = require("react-dom");
-
+var CreateReactClass = require('create-react-class');
 
 //also ref to the component page
 var Home = require('./components/home/homepage.jsx');
+var About = require("./components/about/about-page.jsx");
 
 // module.exports = App;
 //reder de components in the app elememt
-ReactDOM.render(React.createElement(Home, null), document.getElementById("app"));
-},{"./components/home/homepage.jsx":32,"jquery":20,"react":30,"react-dom":26}]},{},[33]);
+// ReactDOM.render(<Home/>, document.getElementById("app"));
+var App = CreateReactClass({
+    render : function(){
+        var Child;
+        switch (this.props.route) {
+            case 'about': Child = About;        
+                break;
+        
+            default:  Child = Home;
+        }
+        return (
+            React.createElement("div", null, 
+                React.createElement(Child, null)
+            )
+        )
+    }
+});
+
+function _routeMe(){
+    // 
+    var route = window.location.hash.substr(1);
+    // devuelve la url que viene luego del  #
+    ReactDOM.render(React.createElement(App, {route: route}), document.getElementById("app"));
+}
+window.addEventListener('hashchange', _routeMe);
+_routeMe();
+
+},{"./components/about/about-page.jsx":32,"./components/home/homepage.jsx":33,"create-react-class":2,"jquery":20,"react":30,"react-dom":26}]},{},[34]);
