@@ -25,5 +25,8 @@
     "react-router": "^4.2.0",
     "reactify": "^1.1.1",
     "vinyl-source-stream": "^2.0.0"
+  },
+  "devDependencies": {
+    "create-react-class": "^15.6.3"
   }
 }
